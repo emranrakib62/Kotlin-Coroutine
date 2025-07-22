@@ -3,6 +3,7 @@ package com.example.kotlincoroutine
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,7 +15,7 @@ import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
-    var value=0
+val viewModel:CounterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.i("Tag","1.Thread name:${Thread.currentThread()}")
         binding.increment.setOnClickListener{
-            value++
+
             binding.incrementedValue.text="$value"
         }
         binding.longtaskbutton.setOnClickListener{
