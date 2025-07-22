@@ -24,8 +24,8 @@ val viewModel:CounterViewModel by viewModels()
         setContentView(binding.root)
         Log.i("Tag","1.Thread name:${Thread.currentThread()}")
         binding.increment.setOnClickListener{
-
-            binding.incrementedValue.text="$value"
+viewModel.increment()
+            binding.incrementedValue.text="${viewModel.value}"
         }
         binding.longtaskbutton.setOnClickListener{
 
