@@ -23,9 +23,19 @@ val viewModel:CounterViewModel by viewModels()
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.i("Tag","1.Thread name:${Thread.currentThread()}")
+
+        viewModel.counterMutableLiveData.observe(this@MainActivity){
+            binding.incrementedValue.text="$it"
+        }
+
+
         binding.increment.setOnClickListener{
-viewModel.increment()
-            binding.incrementedValue.text="${viewModel.value.toString()}"
+
+
+
+
+            viewModel.increment()
+
         }
         binding.longtaskbutton.setOnClickListener{
 
